@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D _rb;
     [SerializeField] private float _speed;
-    [SerializeField] private Vector2 _vec;
+    private Vector2 _vec;
      
     private void Start()
     {
@@ -25,18 +25,20 @@ public class PlayerController : MonoBehaviour
         LookMouse();
         CreatBullet();
         Move();
-
-        //_vec = _camera.ScreenToWorldPoint(Input.mousePosition);
-
-        Debug.Log(_vec.normalized);
     }
 
+    /// <summary>
+    /// Точка напрвления для игрока
+    /// </summary>
     private void LookMouse()
     {
         Vector3 screenMousePostion = Input.mousePosition;
         transform.right = Vector2.Lerp(transform.right, (_camera.ScreenToWorldPoint(screenMousePostion) - transform.position), 0.1f);
     }
 
+    /// <summary>
+    /// Создание пули
+    /// </summary>
     private void CreatBullet()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -48,6 +50,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Перевдижения игрока с помощью клавиши
+    /// </summary>
     private void Move()
     {
         if (Input.GetKey(KeyCode.Space))
