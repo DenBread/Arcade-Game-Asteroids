@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     private Camera _camera;
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform pointBullet;
+    [SerializeField] private float _speedBullet;
 
     private Rigidbody2D _rb;
     [SerializeField] private float _speed;
@@ -41,6 +42,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             GameObject bullets = Instantiate(bullet, pointBullet.position, Quaternion.identity);
+            bullets.GetComponent<Rigidbody2D>().AddRelativeForce(transform.right * _speedBullet, ForceMode2D.Impulse);
+
             Destroy(bullets, 10f);
         }
     }
@@ -49,8 +52,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            _vec = _camera.ScreenToWorldPoint(Input.mousePosition);
-            _rb.velocity = Vector2.MoveTowards(transform.position, _vec, _speed);
+            _rb.AddForce(transform.right * _speed * Time.deltaTime, ForceMode2D.Force);
         }
     }
 }

@@ -276,7 +276,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 302423545}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -480,7 +480,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 8741388299272496671, guid: 8e7d36762ada7a242bf074a2368845db, type: 3}
   pointBullet: {fileID: 1331989672}
-  _speed: 10
+  _speedBullet: 10
+  _speed: 50
   _vec: {x: 0, y: 0}
 --- !u!4 &560522862
 Transform:
