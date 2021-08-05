@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
         LookMouse();
         CreatBullet();
         Move();
+        TeleportPlayer();
     }
 
     /// <summary>
@@ -58,6 +59,14 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             _rb.AddForce(transform.right * _speed * Time.deltaTime, ForceMode2D.Force);
+        }
+    }
+
+    private void TeleportPlayer()
+    {
+        if (transform.position.x > 9f)
+        {
+            transform.position = new Vector3(-8.9f, transform.position.y);
         }
     }
 }
